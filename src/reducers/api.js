@@ -6,53 +6,16 @@ export const storeApi = createApi({
     reducerPath: 'bigfredApi',
     baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:8081/'}),
     endpoints: (builder) => ({
-        getPurchases : builder.query({
-            query: ()=> 'api/purchases'
-        }),
-        getProducts: builder.query({
-            query: ()=>'api/products'
-        }),
-
         getPosts: builder.query({
           query: ()=> 'api/posts'
         }),
-
         getUserPosts: builder.query({
             query:(id)=>'api/posts/user/'+id
         }),
-
-        getPurchaseById : builder.query({
-            query: (id)=> 'api/purchases/'+id
-        }),
-        getProductById :builder.query({
-            query: (id)=> 'api/products/'+id
-        }),
-
-        deletePurchase: builder.mutation({
-            query: (id)=>({
-                url:'api/purchases/'+id,
-                method:"DELETE"
-            })
-        }),
-
         deletePost:builder.mutation({
             query:(id)=>({
                 url:'api/posts/'+id,
                 method:'DELETE'
-            })
-        }),
-
-        deleteProduct: builder.mutation({
-            query: (id)=>({
-                url:'api/products/'+id,
-                method: "DELETE"
-            })
-        }),
-        addPurchase: builder.mutation({
-            query: (body)=>({
-                url:'api/purchases',
-                method:"POST",
-                body:body
             })
         }),
         addPost: builder.mutation({

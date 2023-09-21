@@ -21,15 +21,6 @@ router.get('/user/:id', async (req,res,next)=>{
             }
         });
         res.send(allPosts)
-        // const user = await prisma.user.findUnique({
-        //     where:{
-        //         id: Number(req.params.id)
-        //     },
-        //     include:{
-        //         posts: true
-        //     }
-        // });
-        // res.send(user)
     }catch(err){
         next(err)
     }
